@@ -1,0 +1,39 @@
+[
+    {
+        "idTask":1,
+        "Title":"Task-001 Make Scrum Board",
+        "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla repellendus maxime repellat accusamus ea a delectus quaerat laboriosam!",
+        "asignedUser":{
+            "name":"Borja Rondan",
+            "avatar":"https://avatars.githubusercontent.com/u/44036474?s=400&u=fe73246fca4d49cb3dbc8b0bb9a945587090f05e&v=4",
+            "github":"https://github.com/borjar20"
+        },
+        "finalDate":"30/03/2021",
+        "state":"inprogress"
+    },
+    {
+        "idTask":2,
+        "Title":"Task-002 Edit Scrum Board",
+        "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla repellendus maxime repellat accusamus ea a delectus quaerat laboriosam! Architecto quidem facere minus accusamus, omnis commodi perferendis incidunt odio cumque!",
+
+        "asignedUser":{
+            "name":"Borja Rondan",
+            "avatar":"https://avatars.githubusercontent.com/u/44036474?s=400&u=fe73246fca4d49cb3dbc8b0bb9a945587090f05e&v=4",
+            "github":"https://github.com/borjar20"
+        },
+        "finalDate":"30/03/2021",
+        "state":"todo"
+    },
+    {
+        "idTask":3,
+        "Title":"Task-003 Delete Scrum Board",
+        "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla repellendus maxime repellat accusamus ea a delectus quaerat laboriosam!",
+        "asignedUser":{
+            "name":"Alex",
+            "avatar":"https://cdn.elnacional.com/wp-content/uploads/2021/03/avatar-publicity_still-h_2019-compressed.jpg",
+            "github":"https://github.com/isa-group"
+        },
+        "finalDate":"30/03/2021",
+        "state":"done"
+    }
+]

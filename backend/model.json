@@ -1,0 +1,12 @@
+{
+    "idTask":3,
+    "Title":"Task-003 Delete Scrum Board",
+    "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla repellendus maxime repellat accusamus ea a delectus quaerat laboriosam!",
+    "asignedUser":{
+        "name":"Alex",
+        "avatar":"https://cdn.elnacional.com/wp-content/uploads/2021/03/avatar-publicity_still-h_2019-compressed.jpg",
+        "github":"https://github.com/isa-group"
+    },
+    "finalDate":"30/03/2021",
+    "state":"done"
+}

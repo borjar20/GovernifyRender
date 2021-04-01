@@ -1,0 +1,219 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Scrum list
+  description: >-
+    This is an OpenAPI Specification created by oas-wizard
+    (https://github.com/pafmon/oas-wizard)
+  contact:
+    name: PabloFM
+    email: pablofm@us.es
+    url: "http://www.isa.us.es"
+  license:
+    name: MIT
+    url: "http://opensource.org/licenses/MIT"
+paths:
+  /api/v1/scrums:
+    get:
+      description: Returns all scrums
+      operationId: getScrums
+      responses:
+        "200":
+          description: Scrum List
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/scrum"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorModel"
+    post:
+      description: Creates a new scrum
+      operationId: addScrum
+      responses:
+        "201":
+          description: scrum created
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorModel"
+      requestBody:
+        x-name: scrum
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/scrum"
+        description: Scrum to be created
+        required: true
+  "/api/v1/scrums/{idTask}":
+    get:
+      description: Returns a scrum by idTask
+      operationId: findScrumByidTask
+      parameters:
+        - name: idTask
+          in: path
+          description: idTask of scrum to fetch
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Scrum returned
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/scrum"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorModel"
+    delete:
+      description: deletes a single scrum based on the idTask
+      operationId: deleteScrum
+      parameters:
+        - name: idTask
+          in: path
+          description: ID of scrum to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: scrum deleted
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorModel"
+    put:
+      description: Update a scrum based on its idTask
+      operationId: updateScrum
+      parameters:
+        - name: idTask
+          in: path
+          description: ID of scrum to put
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: scrum updated
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorModel"
+      requestBody:
+        x-name: scrum
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/scrum"
+        description: Scrum to be updated
+        required: true
+  /api/v1/scrum/advance:
+    put:
+      description: Update a scrum based on its idTask
+      operationId: advanceScrum
+      responses:
+        "204":
+          description: scrum updated
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorModel"
+      requestBody:
+        x-name: scrum
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/scrum"
+        description: Scrum to be updated
+        required: true
+  /api/v1/scrum/back:
+    put:
+      description: Update a scrum based on its idTask
+      operationId: backScrum
+      responses:
+        "204":
+          description: scrum updated
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorModel"
+      requestBody:
+        x-name: scrum
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/scrum"
+        description: Scrum to be updated
+        required: true
+components:
+  schemas:
+    errorModel:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    scrum:
+      type: object
+      properties:
+        idTask:
+          type: number
+        Title:
+          type: string
+          minLength: 1
+        Description:
+          type: string
+          minLength: 1
+        asignedUser:
+          type: object
+          properties:
+            name:
+              type: string
+              minLength: 1
+            avatar:
+              type: string
+              minLength: 1
+            github:
+              type: string
+              minLength: 1
+          required:
+            - name
+            - avatar
+            - github
+        finalDate:
+          type: string
+          minLength: 1
+        state:
+          type: string
+          minLength: 1
+      required:
+        - idTask
+        - Title
+        - Description
+        - asignedUser
+        - finalDate
+        - state

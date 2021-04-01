@@ -1,0 +1,37 @@
+version: "2.2"
+services:
+  frontend:
+    container_name: frontend
+    image: frontend
+    networks:
+      network1:
+        aliases:
+          - frontend
+    ports:
+      - "8080:80"
+  backend:
+    container_name: backend
+    image: backendapi
+    networks:
+      network1:
+        aliases:
+          - backend
+    environment:
+      - DB_HOST=mongo
+      - DB_PORT=27017
+    ports:
+      - "8081:80"
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    networks:
+      network1:
+        aliases:
+          - mongo
+    volumes:
+      - "db_volume:/data/db"
+volumes:
+  db_volume: null
+networks:
+  network1:
+    external: false
